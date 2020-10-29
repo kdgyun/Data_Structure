@@ -2,6 +2,7 @@ package _01_ArrayList;
 
 import Interface.List;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
@@ -205,13 +206,15 @@ public class ArrayList<E> implements List<E>, Cloneable, Iterable<E> {
 	}
 
 
-	@SuppressWarnings("unchecked")
+
 	public void sort() {
-		final E[] temp = (E[])this.toArray();
-		Arrays.sort(temp);
-		this.array = temp;
+		sort(null);
 	}
 
+	@SuppressWarnings("unchecked")
+	public void sort(Comparator<? super E> c) {
+        Arrays.sort((E[]) array, 0, size, c);
+    }
 
 	public Object[] toArray() {
 		return Arrays.copyOf(array, size);
@@ -240,7 +243,6 @@ public class ArrayList<E> implements List<E>, Cloneable, Iterable<E> {
 	
 	@Override
 	public Iterator<E> iterator() {
-		// TODO Auto-generated method stub
 		return new Iter();
 	}
 	
