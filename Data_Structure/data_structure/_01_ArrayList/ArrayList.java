@@ -47,7 +47,7 @@ public class ArrayList<E> implements List<E>, Cloneable, Iterable<E> {
 
 		// if array is full
 		if (size == array_capacity) {
-			int new_capacity = array_capacity * 2;
+			int new_capacity = array_capacity << 1;
 
 			// copy
 			array = Arrays.copyOf(array, new_capacity);
@@ -56,7 +56,7 @@ public class ArrayList<E> implements List<E>, Cloneable, Iterable<E> {
 
 		// if array is less than half full
 		if (size < (array_capacity / 2)) {
-			int new_capacity = array_capacity / 2;
+			int new_capacity = array_capacity >>> 1;
 
 			// copy
 			array = Arrays.copyOf(array, Math.max(new_capacity, DEFAULT_CAPACITY));
@@ -90,18 +90,18 @@ public class ArrayList<E> implements List<E>, Cloneable, Iterable<E> {
 		}
 		if (index == size) {
 			addLast(value);
-		} else {
-
-			if (size == array.length) {
-				resize();
-			}
-
-			for (int i = size; i > index; i--) {
-				array[i] = array[i - 1];
-			}
-			array[index] = value;
-			size++;
+			return;
 		}
+
+		if (size == array.length) {
+			resize();
+		}
+
+		for (int i = size; i > index; i--) {
+			array[i] = array[i - 1];
+		}
+		array[index] = value;
+		size++;
 
 	}
 
@@ -222,10 +222,13 @@ public class ArrayList<E> implements List<E>, Cloneable, Iterable<E> {
 		if (a.length < size)
 			return (T[]) Arrays.copyOf(array, size, a.getClass());
 
-		/*
-		 * arraycopry param 1) original array 2) start potision in original array 3)
-		 * array to copy 4) start position in array to copy 5) number of elements to
-		 * copy
+		/**
+		 * arraycopry param 
+		 * 1) original array 
+		 * 2) start potision in original array 
+		 * 3) array to copy 
+		 * 4) start position in array to copy 
+		 * 5) number of elements to copy
 		 */
 		System.arraycopy(array, 0, a, 0, size);
 		if (a.length > size)
