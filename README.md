@@ -22,8 +22,8 @@ Project
 > - Java11 API : [Java API](https://docs.oracle.com/en/java/javase/11/docs/api/index.html)
 
 </br></br>
-#### [preview subfolder]
-> - Interface : 자료구조를 구현하는데 필요한 기본 인터페이스가 있습니다.
+#### [Preview subFolder]
+> - Interface       : 자료구조를 구현하는데 필요한 기본 인터페이스가 있습니다.
 > - \_01\_ArrayList : ArrayList를 구현한 소스코드가 있습니다.
 
 
