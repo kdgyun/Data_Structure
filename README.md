@@ -19,7 +19,7 @@ Project
 
 > - 자료구조 구현에 필요한 폴더들이 있습니다.
 > - Java를 기준으로 구현됩니다.
-> - Java11 API : [Java API](https://docs.oracle.com/javase/8/docs/api/overview-summary.html)
+> - Java11 API : [Java API](https://docs.oracle.com/en/java/javase/11/docs/api/index.html)
 
 </br></br>
 #### [preview subfolder]
