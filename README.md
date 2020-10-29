@@ -1,9 +1,9 @@
-# Algorithm_Judge
+# Data Structure
 
 
 <br/><br/> 
 
-&nbsp;&nbsp;&nbsp; 알고리즘 문제 소스 코드들이 있는 곳입니다.  
+&nbsp;&nbsp;&nbsp; 자료구조 구현 소스 코드들이 있는 곳입니다.  
 
 <br/><br/>  
 
@@ -12,26 +12,35 @@ Project
 -----------
 <br/>
 
-#### BOJ : 백준 온라인 저지 (BeakJoon Online Judge)  
+#### Data_Structure  
 
 
 
-> - BOJ 에서는 **단계별로 풀어보기**를 우선하여 분류가 됩니다.
-> - Java를 기준으로 하며 필요에 따라 C++, C로 풀이될 수도 있습니다.
-> - BOJ 언어 도움말 : https://www.acmicpc.net/help/language
-> - Java8 API : [Java API](https://docs.oracle.com/javase/8/docs/api/overview-summary.html)
-> - C Library : [C Standard Library](https://en.cppreference.com/w/c/header)
-> - C++ Library : [C++ Standard Library](https://en.cppreference.com/w/cpp/header)
+
+
+> - Java를 기준으로 구현됩니다.
+> - Java11 API : [Java API](https://docs.oracle.com/javase/8/docs/api/overview-summary.html)
+</br></br>
+<p>
+> - Interface : 자료구조를 구현하는데 필요한 기본 인터페이스가 있습니다.
+> - \_01\_ArrayList : ArrayList를 구현한 소스코드가 있습니다.</p>
+
+
+
+&nbsp;&nbsp;&nbsp; 블로그에서 포스팅과 동시에 지속적으로 업데이트 예정 
+
 
 
 <br/><br/>
 
 -----------------
 
-#### 문제 풀이에 대한 자세한 내용은 블로그에 기재하고 있습니다.  
+#### 구현 대한 내용은 블로그에 기재하고 있습니다.  
 <br/>
 
-- [Stranger's LAB](http://st-lab.tistory.com)
-
+- [Stranger's LAB](https://st-lab.tistory.com/category/자료구조/Java)
+&nbsp;&nbsp;&nbsp; 부분적으로 추가 구현 또는 차이가 있을 수 있습니다.
 
 <br/><br/>
+
+
