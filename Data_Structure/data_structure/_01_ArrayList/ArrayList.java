@@ -10,9 +10,9 @@ import java.util.NoSuchElementException;
  *
  * @param <E> the type of elements in this list
  * 
- * @author	  kdgyun (st-lab.tistory.com)
- * @version   1.0
- * @see		  List
+ * @author kdgyun (st-lab.tistory.com)
+ * @version 1.0
+ * @see List
  * 
  */
 
@@ -33,7 +33,7 @@ public class ArrayList<E> implements List<E>, Cloneable, Iterable<E> {
 	public ArrayList(int capacity) {
 		array = new Object[capacity];
 		this.size = 0;
-		
+
 	}
 
 	private void resize() {
@@ -53,8 +53,8 @@ public class ArrayList<E> implements List<E>, Cloneable, Iterable<E> {
 			array = Arrays.copyOf(array, new_capacity);
 			return;
 		}
-		
-		// if array is less than half full 
+
+		// if array is less than half full
 		if (size < (array_capacity / 2)) {
 			int new_capacity = array_capacity / 2;
 
@@ -63,13 +63,12 @@ public class ArrayList<E> implements List<E>, Cloneable, Iterable<E> {
 			return;
 		}
 	}
-	
+
 	@Override
 	public boolean add(E value) {
 		addLast(value);
 		return true;
 	}
-
 
 	public void addLast(E value) {
 		if (size == array.length) {
@@ -79,11 +78,10 @@ public class ArrayList<E> implements List<E>, Cloneable, Iterable<E> {
 		size++;
 
 	}
-	
+
 	public void addFirst(E value) {
 		add(0, value);
 	}
-
 
 	@Override
 	public void add(int index, E value) {
@@ -92,13 +90,12 @@ public class ArrayList<E> implements List<E>, Cloneable, Iterable<E> {
 		}
 		if (index == size) {
 			addLast(value);
-		} 
-		else {
-			
-			if(size == array.length) {
+		} else {
+
+			if (size == array.length) {
 				resize();
 			}
-			
+
 			for (int i = size; i > index; i--) {
 				array[i] = array[i - 1];
 			}
@@ -107,17 +104,16 @@ public class ArrayList<E> implements List<E>, Cloneable, Iterable<E> {
 		}
 
 	}
-	
+
 	@SuppressWarnings("unchecked")
 	@Override
 	public E get(int index) {
-		if(index >= size || index < 0) {
+		if (index >= size || index < 0) {
 			throw new IndexOutOfBoundsException();
 		}
 		return (E) array[index];
 	}
 
-	 
 	@Override
 	public void set(int index, E value) {
 		if (index >= size || index < 0) {
@@ -126,8 +122,7 @@ public class ArrayList<E> implements List<E>, Cloneable, Iterable<E> {
 			array[index] = value;
 		}
 	}
-	
-	
+
 	@Override
 	public int indexOf(Object value) {
 		for (int i = 0; i < size; i++) {
@@ -138,13 +133,10 @@ public class ArrayList<E> implements List<E>, Cloneable, Iterable<E> {
 		return -1;
 	}
 
-	
 	@Override
 	public boolean contains(Object value) {
 		return indexOf(value) >= 0;
 	}
-
-
 
 	@SuppressWarnings("unchecked")
 	@Override
@@ -196,16 +188,21 @@ public class ArrayList<E> implements List<E>, Cloneable, Iterable<E> {
 	}
 
 	@Override
-	public Object clone() throws CloneNotSupportedException {
-		ArrayList<?> cloneList = (ArrayList<?>)super.clone();
-		cloneList.array = new Object[size];
-		
-		System.arraycopy(array, 0, cloneList.array, 0, size);
+	public Object clone() {
 
-		return cloneList;
+		try {
+			ArrayList<?> cloneList = (ArrayList<?>) super.clone();
+			cloneList.array = new Object[size];
+
+			System.arraycopy(array, 0, cloneList.array, 0, size);
+
+			return cloneList;
+			
+		} catch (CloneNotSupportedException e) {
+			throw new Error(e);
+		}
+
 	}
-
-
 
 	public void sort() {
 		sort(null);
@@ -213,45 +210,39 @@ public class ArrayList<E> implements List<E>, Cloneable, Iterable<E> {
 
 	@SuppressWarnings("unchecked")
 	public void sort(Comparator<? super E> c) {
-        Arrays.sort((E[]) array, 0, size, c);
-    }
+		Arrays.sort((E[]) array, 0, size, c);
+	}
 
 	public Object[] toArray() {
 		return Arrays.copyOf(array, size);
 	}
-	
 
 	@SuppressWarnings("unchecked")
 	public <T> T[] toArray(T[] a) {
 		if (a.length < size)
-            return (T[]) Arrays.copyOf(array, size, a.getClass());
-		
+			return (T[]) Arrays.copyOf(array, size, a.getClass());
+
 		/*
-		  arraycopry param
-		  1) original array
-		  2) start potision in original array
-		  3) array to copy
-		  4) start position in array to copy
-		  5) number of elements to copy
+		 * arraycopry param 1) original array 2) start potision in original array 3)
+		 * array to copy 4) start position in array to copy 5) number of elements to
+		 * copy
 		 */
-        System.arraycopy(array, 0, a, 0, size);
-        if (a.length > size)
-            a[size] = null;
-        return a;
-		
+		System.arraycopy(array, 0, a, 0, size);
+		if (a.length > size)
+			a[size] = null;
+		return a;
+
 	}
-	
+
 	@Override
 	public Iterator<E> iterator() {
 		return new Iter();
 	}
-	
-	
 
 	private class Iter implements Iterator<E> {
 
-		private int now = 0; 
-		
+		private int now = 0;
+
 		@Override
 		public boolean hasNext() {
 			return now < size;
@@ -261,18 +252,18 @@ public class ArrayList<E> implements List<E>, Cloneable, Iterable<E> {
 		@Override
 		public E next() {
 			int cs = now;
-			if(cs >= size) {
+			if (cs >= size) {
 				throw new NoSuchElementException();
 			}
 			Object[] data = ArrayList.this.array;
 			now = cs + 1;
 			return (E) data[cs];
 		}
-		
-		public void remove() { 
-	        throw new UnsupportedOperationException(); 
-	    } 
-		
+
+		public void remove() {
+			throw new UnsupportedOperationException();
+		}
+
 	}
-	
+
 }
