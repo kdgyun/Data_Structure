@@ -7,6 +7,16 @@ import java.util.NoSuchElementException;
 
 import Interface.List;
 
+/**
+*
+* @param <E> the type of elements in this list
+* 
+* @author kdgyun (st-lab.tistory.com)
+* @version 1.0
+* @see List
+* 
+*/
+
 public class SLinkedList<E> implements List<E>, Iterable<E>, Cloneable {
 	
 	private Node<E> head; 
