@@ -280,9 +280,10 @@ public class SLinkedList<E> implements List<E>, Iterable<E>, Cloneable {
 		Object[] a = this.toArray();
 		Arrays.sort(a, (Comparator) c);
 
-		int i = 0;
-		for (Node<E> x = head; x != null; x = x.next, i++) {
-			x.data = (E) a[i];
+		Iter it = (SLinkedList<E>.Iter) this.iterator();
+		for(Object e : a) {
+			it.next();
+			it.set((E) e);
 		}
 	}
 	
@@ -317,6 +318,13 @@ public class SLinkedList<E> implements List<E>, Iterable<E>, Cloneable {
 			return (E) nowNode.data;
 		}
 
+		public void set(E e) {
+			if(nowNode == null) {
+				throw new IllegalStateException();
+			}
+			nowNode.data = e;
+		}
+		
 		public void remove() {
 			throw new UnsupportedOperationException();
 		}
