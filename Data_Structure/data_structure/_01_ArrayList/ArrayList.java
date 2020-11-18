@@ -132,6 +132,15 @@ public class ArrayList<E> implements List<E>, Cloneable, Iterable<E> {
 		}
 		return -1;
 	}
+	
+	public int lastIndexOf(Object value) {
+		for(int i = size - 1; i >= 0; i--) {
+			if(array[i].equals(value)) {
+				return i;
+			}
+		}
+		return -1;
+	}
 
 	@Override
 	public boolean contains(Object value) {
