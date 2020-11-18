@@ -41,6 +41,11 @@ public interface StackInterface<E> {
 	 * 스택의 상반 부터 특정 요소가 몇 번째 위치에 있는지를 반환합니다.
 	 * 중복되는 원소가 있을경우 가장 위에 있는 요소의 위치가 반환됩니다.
 	 * 
+	 * @param value 스택에서 위치를 찾을 요소
+	 * @return 스택의 상단부터 처음으로 요소와 일치하는 위치를 반환.
+	 *         만약 일치하는 요소가 없을 경우 -1 을 반환 
+	 */
+	/*
 	 *         ________
 	 *         | a    |
 	 * idx 3   |______|   search((Integer)w)
@@ -51,9 +56,6 @@ public interface StackInterface<E> {
 	 *         | k    |
 	 * idx 0   |______|
 	 * 
-	 * @param value 스택에서 위치를 찾을 요소
-	 * @return 스택의 상단부터 처음으로 요소와 일치하는 위치를 반환.
-	 *         만약 일치하는 요소가 없을 경우 -1 을 반환 
 	 */
 	int search(Object value);
 	
