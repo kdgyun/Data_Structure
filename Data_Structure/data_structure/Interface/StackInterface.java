@@ -48,7 +48,7 @@ public interface StackInterface<E> {
 	/*
 	 *         ________
 	 *         | a    |
-	 * idx 3   |______|   search((Integer)w)
+	 * idx 3   |______|   search("w")
 	 *         | e    |   --> 상단(idx 3)으로 부터 3번 째에 위치 
 	 * idx 2   |______|       == return 되는 값 : 3
 	 *         | w    |
