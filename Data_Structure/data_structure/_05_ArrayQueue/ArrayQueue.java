@@ -74,22 +74,17 @@ public class ArrayQueue<E> implements Queue<E>, Cloneable {
 	@Override
 	public E poll() {
 
-		if (size == 0) { // 삭제할 요소가 없을 경우 null 반환
+		if (size == 0) { 
 			return null;
 		}
-
-		front = (front + 1) % array.length; // front 를 한 칸 옮긴다.
+		front = (front + 1) % array.length;
 
 		@SuppressWarnings("unchecked")
-		E item = (E) array[front]; // 반환할 데이터 임시 저장
+		E item = (E) array[front];
+		array[front] = null; 
+		size--; 
 
-		array[front] = null; // 해당 front의 데이터 삭제
-		size--; // 사이즈 감소
-
-		// 용적이 최소 크기(64)보다 크고 요소 개수가 1/4 미만일 경우
 		if (array.length > DEFAULT_CAPACITY && size < (array.length / 4)) {
-
-			// 아무리 작아도 최소용적 미만으로 줄이지는 않도록 한다.
 			resize(Math.max(DEFAULT_CAPACITY, array.length / 2));
 		}
 
