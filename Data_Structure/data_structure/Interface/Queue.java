@@ -13,7 +13,6 @@ package Interface;
  * 
  */
 
-
 public interface Queue<E> {
 	
 	/**
