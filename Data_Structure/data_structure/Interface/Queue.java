@@ -7,7 +7,7 @@ package Interface;
  * Deque, PriorityQueue 에 의해 구현됩니다.
  * 
  * @author st_lab
- * @param <E> the type of elements in this Que
+ * @param <E> the type of elements in this Queue
  *
  * @version 1.0
  * 
