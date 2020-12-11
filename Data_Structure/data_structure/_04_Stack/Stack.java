@@ -7,7 +7,6 @@ import java.util.Iterator;
 import java.util.NoSuchElementException;
 
 import Interface.StackInterface;
-import _01_ArrayList.ArrayList;
 
 /**
 *
