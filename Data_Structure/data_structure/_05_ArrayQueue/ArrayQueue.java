@@ -4,6 +4,7 @@ import Interface.Queue;
 
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.Iterator;
 import java.util.NoSuchElementException;
 
 /**
@@ -11,12 +12,12 @@ import java.util.NoSuchElementException;
  * @param <E> the type of elements in this Queue
  * 
  * @author kdgyun (st-lab.tistory.com)
- * @version 1.0
+ * @version 1.0.1
  * @see Queue
  * 
  */
 
-public class ArrayQueue<E> implements Queue<E>, Cloneable {
+public class ArrayQueue<E> implements Queue<E>, Cloneable, Iterable<E> {
 
 	private static final int DEFAULT_CAPACITY = 64;
 
@@ -213,5 +214,41 @@ public class ArrayQueue<E> implements Queue<E>, Cloneable {
 		clear();
 		System.arraycopy(res, 0, array, 1, res.length); 
 		this.rear = this.size = res.length;
+	}
+	
+	@Override
+	public Iterator<E> iterator() {
+		return new Iter();
+	}
+
+	private class Iter implements Iterator<E> {
+
+		private int count = 0;
+		private int len = array.length;
+		private int now = (front + 1) % len;
+
+		@Override
+		public boolean hasNext() {
+			return count < size;
+		}
+
+		@SuppressWarnings("unchecked")
+		@Override
+		public E next() {
+			int cs = count;
+			int ns = now;
+			if (cs >= size) {
+				throw new NoSuchElementException();
+			}
+			Object[] data = ArrayQueue.this.array;
+			count = cs + 1;
+			now = (ns + 1) % len;
+			return (E) data[ns];
+		}
+
+		public void remove() {
+			throw new UnsupportedOperationException();
+		}
+
 	}
 }
