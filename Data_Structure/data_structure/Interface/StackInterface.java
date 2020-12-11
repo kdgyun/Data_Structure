@@ -3,7 +3,8 @@ package Interface;
 /**
  * 
  * 자바 stack Interface입니다. <br>
- * StackInterface는 Stack에 의해 구현됩니다.
+ * StackInterface는 Stack에 의해 구현됩니다. <br>
+ * 또한 필요에 따라 ArrayList가 구현되어있는 경우 ArrayList를 상속하여 구현 될 수도 있습니다.
  * 
  * @author st_lab
  * @param <E> the type of elements in this Stack
