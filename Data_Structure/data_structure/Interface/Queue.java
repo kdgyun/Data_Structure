@@ -4,7 +4,7 @@ package Interface;
  * 
  * 자바 Queue Interface입니다. <br>
  * Queue는 ArrayQueue, LinkedListQueue,
- * Deque, PriorityQueue 에 의해 구현됩니다.
+ * ArrayDeque, LinkedListDeque, PriorityQueue 에 의해 구현됩니다.
  * 
  * @author st_lab
  * @param <E> the type of elements in this Queue
