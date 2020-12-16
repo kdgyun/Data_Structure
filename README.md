@@ -31,6 +31,7 @@ Project
 > - \_05\_ArrayQueue : 배열로 Queue를 구현한 소스코드가 있습니다.
 > - \_06\_LinkedListQueue : 연결리스트로 Queue를 구현한 소스코드가 있습니다.
 > - \_07\_ArrayDeque : 배열로 Deque를 구현한 소스코드가 있습니다.
+> - \_08\_LinkedListDeque : 연결리스로 Deque를 구현한 소스코드가 있습니다.
 
 
 <br/><br/>
