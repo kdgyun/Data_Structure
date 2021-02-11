@@ -1,5 +1,7 @@
 package _09_Heap;
 
+import java.util.Arrays;
+
 /**
 *
 * @param <E> the type of elements in this Heap
@@ -10,15 +12,16 @@ package _09_Heap;
 */
 
 import java.util.Comparator;
+import java.util.Iterator;
 import java.util.NoSuchElementException;
 
-public class Heap<E> {
+public class Heap<E> implements Cloneable, Iterable<E> {
 
 	private final Comparator<? super E> comparator;
 	private static final int DEFAULT_CAPACITY = 10;	 
 
 	private int size;
-	Object[] array;
+	private Object[] array;
 
 	public Heap() {
 		this(null);
@@ -59,39 +62,38 @@ public class Heap<E> {
 		if(size + 1 == array.length) {
 			resize(array.length * 2);
 		}
-		siftUp(value);
+		siftUp(size + 1, value);
+		size++;
 	}
 	
-	private void siftUp(E value) {
+	private void siftUp(int idx, E value) {
 		if(comparator != null) {
-			siftUpComparator(value, comparator);
+			siftUpComparator(idx, value, comparator);
 		}
 		else {
-			siftUpComparable(value);
+			siftUpComparable(idx, value);
 		}
 	}
 
 	@SuppressWarnings("unchecked")
-	private void siftUpComparator(E value, Comparator<? super E> comp) {
-		int idx = size + 1;
+	private void siftUpComparator(int idx, E target, Comparator<? super E> comp) {
+		
 		while(idx > 1) {
 			int parent = idx >>> 1;
 			Object parentVal = array[parent];
 			
-			if(comp.compare(value, (E) parentVal) >= 0) {
+			if(comp.compare(target, (E) parentVal) >= 0) {
 				break;
 			}
 			array[idx] = parentVal;
 			idx = parent;
 		}
-		array[idx] = value;
-		size++;
+		array[idx] = target;
 	}
 	
 	@SuppressWarnings("unchecked")
-	private void siftUpComparable(E value) {
-		Comparable<? super E> comp = (Comparable<? super E>) value;
-		int idx = size + 1;
+	private void siftUpComparable(int idx, E target) {
+		Comparable<? super E> comp = (Comparable<? super E>) target;
 		
 		while(idx > 1) {
 			int parent = idx >>> 1;
@@ -104,7 +106,6 @@ public class Heap<E> {
 			idx = parent;
 		}
 		array[idx] = comp;
-		size++;
 	}
 
 	
@@ -114,8 +115,10 @@ public class Heap<E> {
 			throw new NoSuchElementException();
 		}	
 		E result = (E) array[1]; 
-		array[1] = null;
-		siftDown(size, (E)array[size]);	
+		E target = (E) array[size];
+		array[size] = null;
+		size--;	
+		siftDown(1, target);	
 		
 		return result;
 	}
@@ -132,10 +135,9 @@ public class Heap<E> {
 	@SuppressWarnings("unchecked")
 	private void siftDownComparator(int idx, E target, Comparator<? super E> comp) {
 
-		array[idx] = null;
-		size--;			
+		array[idx] = null;		
 		
-		int parent = 1;	
+		int parent = idx;	
 		int child;
 		
 		while((child = (parent << 1)) <= size) {
@@ -165,14 +167,13 @@ public class Heap<E> {
 	
 
 	@SuppressWarnings("unchecked")
-	private void siftDownComparable(int idx, E value) {
+	private void siftDownComparable(int idx, E target) {
 		
-		Comparable<? super E> comp = (Comparable<? super E>) value;
+		Comparable<? super E> comp = (Comparable<? super E>) target;
 		
 		array[idx] = null;
-		size--;
 		
-		int parent = 1;
+		int parent = idx;
 		int child;
 
 		while((child = (parent << 1)) <= size) {
@@ -217,14 +218,78 @@ public class Heap<E> {
 	public boolean isEmpty() {
 		return size == 0;
 	}
+	
+	public boolean contains(Object value) {
+		for(int i = 1; i <= size; i++) {
+			if(array[i].equals(value)) {
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	public void clear() {
+		for(int i = 0; i < array.length; i++) {
+			array[i] = null;
+		}
+		
+		size = 0;
+	}
+	
+	public Object[] toArray() {
+		return toArray(new Object[size]);
+	}
+	
+	@SuppressWarnings("unchecked")
+	public <T> T[] toArray(T[] a) {
+		if(a.length <= size) {
+			return (T[]) Arrays.copyOfRange(array, 1, size + 1, a.getClass());
+		}
+		System.arraycopy(array, 1, a, 0, size);
+		return a;
+	}
+	
+	@Override
+	public Object clone() throws CloneNotSupportedException {
+		
+		Heap<?> cloneHeap = (Heap<?>) super.clone();
+		
+		cloneHeap.array = new Object[size + 1];
+		
+		System.arraycopy(array, 0, cloneHeap, 0, size + 1);
+		return cloneHeap;
+	}
+	
+	@Override
+	public Iterator<E> iterator() {
+		return new Iter();
+	}
+	
+	private class Iter implements Iterator<E> {
+
+		private int now = 1;
+
+		@Override
+		public boolean hasNext() {
+			return now <= size;
+		}
+
+		@SuppressWarnings("unchecked")
+		@Override
+		public E next() {
+			int cs = now;
+			if (cs > size) {
+				throw new NoSuchElementException();
+			}
+			Object[] data = Heap.this.array;
+			now = cs + 1;
+			return (E) data[cs];
+		}
+
+		public void remove() {
+			throw new UnsupportedOperationException();
+		}
+
+	}
+	
 }
-
-
-
-
-
-
-
-
-
-
