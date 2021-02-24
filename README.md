@@ -71,8 +71,8 @@ Data structure to support sort method:
 - **Stack**
 - **ArrayQueue**
 - **LinkedListQueue**
-- **ArrayDeQue**
-- **LinkedListDeQue**
+- **ArrayDeque**
+- **LinkedListDeque**
 
 </br></br>
 
