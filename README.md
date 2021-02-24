@@ -55,12 +55,26 @@ Project
 - **3. import class**
 
 ```
-import [data structure name].[data structure name];
+import [data structure package name].[data structure name];
 ```
 
 </br></br></br>
 
-**All sorting methods are static methods.**
+**Most data structure classes have sorting methods.**
+
+</br>
+
+Data structure to support alignment:
+- **ArrayList**
+- **SinglyLInkedList**
+- **DoublyLInkedList**
+- **Stack**
+- **ArrayQueue**
+- **LinkedListQueue**
+- **ArrayDeQue**
+- **LinkedListDeQue**
+
+</br></br>
 
 ```java
 //ex.
@@ -73,6 +87,8 @@ class YourClass {
 		/*
 		 your code
 		*/
+		
+		list.sort();
 	}
 }
 ```
