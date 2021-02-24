@@ -64,7 +64,7 @@ import [data structure package name].[data structure name];
 
 </br>
 
-Data structure to support alignment:
+Data structure to support sort method:
 - **ArrayList**
 - **SinglyLInkedList**
 - **DoublyLInkedList**
