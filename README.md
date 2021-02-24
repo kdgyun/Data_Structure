@@ -18,7 +18,7 @@ Project
 
 
 > - 자료구조 구현에 필요한 폴더들이 있습니다.
-> - Java를 기준으로 구현됩니다.
+> - Java11를 기준으로 구현됩니다.
 > - Java11 API : [Java API](https://docs.oracle.com/en/java/javase/11/docs/api/index.html)
 
 </br></br>
@@ -31,14 +31,62 @@ Project
 > - \_05\_ArrayQueue : 배열로 Queue를 구현한 소스코드가 있습니다.
 > - \_06\_LinkedListQueue : 연결리스트로 Queue를 구현한 소스코드가 있습니다.
 > - \_07\_ArrayDeque : 배열로 Deque를 구현한 소스코드가 있습니다.
-> - \_08\_LinkedListDeque : 연결리스로 Deque를 구현한 소스코드가 있습니다.
+> - \_08\_LinkedListDeque : 연결리스트로 Deque를 구현한 소스코드가 있습니다.
+> - \_09\_Heap : 배열로 힙을 구현한 소스코드가 있습니다.
 
 
 <br/><br/>
-&nbsp;&nbsp;&nbsp; 블로그에서 포스팅과 동시에 지속적으로 업데이트 예정 
+
+-----------------
+
+
+#### How to Use (download ZIP)
+<br/>
+
+- **1. Project import** <br /> <br /> Window -> File -> New -> Java Project -> uncheck the **Use default location** and Browse the **Data_Structure** folder
+-> Finish
+
+<br /><br />
+
+- **2. Build path** <br /> <br /> Your Project -> Build Path -> Configure Build Path -> Project -> select the class path -> add -> Select **Data_Structure** -> Apply and Close
+
+<br /><br />
+
+- **3. import class**
+
+```
+import [data structure name].[data structure name];
+```
+
+</br></br></br>
+
+**All sorting methods are static methods.**
+
+```java
+//ex.
+
+import _01_ArrayList.ArrayList;
+
+class YourClass {
+	public static main {
+		ArrayList<Integer> list = new ArrayList<Integer>();
+		/*
+		 your code
+		*/
+	}
+}
+```
 
 
 
+<br/><br/>
+
+ 
+<br/><br/>
+
+&nbsp;&nbsp;&nbsp; 블로그에서 포스팅과 동시에 지속적으로 업데이트 예정
+
+<br/><br/>
 <br/><br/>
 
 -----------------
