@@ -82,7 +82,7 @@ Data structure to support sort method:
 import _01_ArrayList.ArrayList;
 
 class YourClass {
-	public static main {
+	public static void main {
 		ArrayList<Integer> list = new ArrayList<Integer>();
 		/*
 		 your code
