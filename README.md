@@ -33,6 +33,7 @@ Project
 > - \_07\_ArrayDeque : 배열로 Deque를 구현한 소스코드가 있습니다.
 > - \_08\_LinkedListDeque : 연결리스트로 Deque를 구현한 소스코드가 있습니다.
 > - \_09\_Heap : 배열로 힙을 구현한 소스코드가 있습니다.
+> - \_10\_PriorityQueue : 우선순위 큐를 구현한 소스코드 있습니다. (배열 힙 기반)
 
 
 <br/><br/>
