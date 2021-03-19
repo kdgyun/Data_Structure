@@ -6,18 +6,18 @@ package _07_ArrayDeque;
 * 
 * @author kdgyun (st-lab.tistory.com)
 * @version 1.0
-* @see Queue
+* @see Deque
 * 
 */
 
-import Interface.Queue;
+import Interface.Deque;
 
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
-public class ArrayDeque<E> implements Queue<E>, Cloneable, Iterable<E> {
+public class ArrayDeque<E> implements Deque<E>, Cloneable, Iterable<E> {
 
 	private static final int DEFAULT_CAPACITY = 64; 
 

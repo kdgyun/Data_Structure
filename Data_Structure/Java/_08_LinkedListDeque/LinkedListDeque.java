@@ -5,7 +5,7 @@ import java.util.Comparator;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
-import Interface.Queue;
+import Interface.Deque;
 
 
 /**
@@ -18,7 +18,7 @@ import Interface.Queue;
 * 
 */
 
-public class LinkedListDeque<E> implements Queue<E>, Cloneable, Iterable<E> {
+public class LinkedListDeque<E> implements Deque<E>, Cloneable, Iterable<E> {
 	
 	private Node<E> head;	
 	private Node<E> tail;
