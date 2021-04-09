@@ -1,7 +1,5 @@
 package Interface;
 
-import java.util.NoSuchElementException;
-
 /**
  * 
  * 자바 Deque Interface입니다. <br>
