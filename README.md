@@ -42,7 +42,7 @@ Project
 -----------------
 
 
-#### How to Use (download ZIP)
+#### How to Use (download ZIP) on Eclipse
 <br/>
 
 - **1. Project import** <br /> <br /> Window -> File -> New -> Java Project -> uncheck the **Use default location** and Browse the **Data_Structure** folder
