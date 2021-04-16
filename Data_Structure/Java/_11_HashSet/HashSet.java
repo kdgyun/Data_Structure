@@ -6,7 +6,7 @@ import java.util.NoSuchElementException;
 
 import Interface.Set;
 
-public class HashSet<E> implements Set<E>, Iterable<E> {
+public class HashSet<E> implements Set<E>, Iterable<E>, Cloneable {
 
 	private final static int DEFAULT_CAPACITY = 1 << 4;
 
@@ -290,6 +290,40 @@ public class HashSet<E> implements Set<E>, Iterable<E> {
 
 		return a;
 	}
+	
+	@SuppressWarnings("unchecked")
+	@Override
+	public Object clone() {
+		HashSet<E> newSet;
+		try {
+			newSet = (HashSet<E>)super.clone();
+			newSet.table = null;
+			newSet.size = 0;
+		}
+		catch(CloneNotSupportedException e) {
+			throw new Error(e);
+		}
+		newSet.PutSet(this);
+		return newSet;
+	}
+	
+	
+	@SuppressWarnings("unchecked")
+	final void PutSet(HashSet<? extends E> set) {
+		int sSize = set.size();
+		
+		if(sSize <= 0) { 
+			return;
+		}
+		
+		if(table == null) {
+			table = (Node<E>[]) new Node[DEFAULT_CAPACITY];
+		}
+		for (E key : set) {
+			add(hash(key), key);
+		}
+		
+	}
 
 	@Override
 	public Iterator<E> iterator() {
@@ -336,4 +370,8 @@ public class HashSet<E> implements Set<E>, Iterable<E> {
 		}
 
 	}
+	
+
+	
 }
+
