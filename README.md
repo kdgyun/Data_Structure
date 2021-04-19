@@ -12,7 +12,7 @@ Project
 -----------
 <br/>
 
-#### Data_Structure  
+#### DataStructure  
 
 
 
@@ -45,12 +45,12 @@ Project
 #### How to Use (download ZIP) on Eclipse
 <br/>
 
-- **1. Project import** <br /> <br /> Window -> File -> New -> Java Project -> uncheck the **Use default location** and Browse the **Data_Structure** folder
+- **1. Project import** <br /> <br /> Window -> File -> New -> Java Project -> uncheck the **"Use default location"** and browse the **DataStructure** folder
 -> Finish
 
 <br /><br />
 
-- **2. Build path** <br /> <br /> Your Project -> Build Path -> Configure Build Path -> Project -> select the class path -> add -> Select **Data_Structure** -> Apply and Close
+- **2. Build path** <br /> <br /> Your Project -> Build Path -> Configure Build Path -> Project -> select the class path -> add -> Select **DataStructure** -> Apply and Close
 
 <br /><br />
 
