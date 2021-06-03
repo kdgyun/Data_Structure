@@ -118,7 +118,7 @@ public class LinkedHashSet<E> implements Set<E> {
 		
 		/*
 		 * need implementation to headdata remove
-		 */
+		 */ 
 		
 		prevNode.next = null;
 		o.next = null;
