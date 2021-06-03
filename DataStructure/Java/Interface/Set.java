@@ -1,5 +1,7 @@
 package Interface;
 
+import java.util.Iterator;
+
 /**
  * 
  * 자바 Set Interface입니다. <br>
@@ -9,11 +11,11 @@ package Interface;
  * @author st_lab
  * @param <E> the type of elements in this Set
  *
- * @version 1.0
+ * @version 1.0.1
  * 
  */
 
-public interface Set<E> {
+public interface Set<E> extends Iterable<E> {
 
 	/**
 	 * 지정된 요소가 Set에 없는 경우 요소를 추가합니다. 
@@ -72,4 +74,10 @@ public interface Set<E> {
 	 * 이 작업을 수행하면 비어있는 집합이 됩니다.
 	 */
 	void clear();
+	
+	
+	/**
+	 * 집합의 모든 요소를 순회합니다.
+	 */
+	Iterator<E> iterator();
 }

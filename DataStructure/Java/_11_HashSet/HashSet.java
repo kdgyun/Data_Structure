@@ -1,12 +1,22 @@
 package _11_HashSet;
 
+/**
+*
+* @param <E> the type of elements in this HashSet
+* 
+* @author kdgyun (st-lab.tistory.com)
+* @version 1.0.1
+* @see Set
+* 
+*/
+
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
 import Interface.Set;
 
-public class HashSet<E> implements Set<E>, Iterable<E>, Cloneable {
+public class HashSet<E> implements Set<E>, Cloneable {
 
 	private final static int DEFAULT_CAPACITY = 1 << 4;
 
@@ -141,8 +151,8 @@ public class HashSet<E> implements Set<E>, Iterable<E>, Cloneable {
 	}
 
 	@Override
-	public boolean add(E key) {
-		return add(hash(key), key) == null;
+	public boolean add(E e) {
+		return add(hash(e), e) == null;
 	}
 
 	private E add(int hash, E key) {
@@ -179,8 +189,8 @@ public class HashSet<E> implements Set<E>, Iterable<E>, Cloneable {
 	}
 	
 	@Override
-	public boolean remove(Object key) {
-		return remove(hash(key), key) != null;
+	public boolean remove(Object o) {
+		return remove(hash(o), o) != null;
 	}
 	
 	private Object remove(int hash, Object key) {
@@ -232,12 +242,12 @@ public class HashSet<E> implements Set<E>, Iterable<E>, Cloneable {
 	}
 
 	@Override
-	public boolean contains(Object key) {
-		int idx = hash(key) & (table.length - 1);
+	public boolean contains(Object o) {
+		int idx = hash(o) & (table.length - 1);
 		Node<E> temp = table[idx];
 
 		while (temp != null) {
-			if ( key == temp.key || (key != null && temp.key.equals(key))) {
+			if ( o == temp.key || (o != null && temp.key.equals(o))) {
 				return true;
 			}
 			temp = temp.next;
@@ -265,15 +275,8 @@ public class HashSet<E> implements Set<E>, Iterable<E>, Cloneable {
 		Object[] ret = new Object[size];
 		int index = 0;
 
-		for (int i = 0; i < table.length; i++) {
-
-			Node<E> node = table[i];
-
-			while (node != null) {
-				ret[index] = node.key;
-				index++;
-				node = node.next;
-			}
+		for(Object v : this) {
+			ret[index++] = v;
 		}
 
 		return ret;
@@ -289,6 +292,37 @@ public class HashSet<E> implements Set<E>, Iterable<E>, Cloneable {
 		System.arraycopy(copy, 0, a, 0, size);
 
 		return a;
+	}
+	
+	@Override
+	public boolean equals(Object o) {
+		
+		if(o == this) {
+			return true;
+		}
+		if(!(o instanceof Set)) {
+			return false;
+		}
+		
+		Set<?> oSet = (Set<?>) o;
+
+		try {
+			
+			if(oSet.size() != size) {
+				return false;
+			}
+			
+			for(Object v : oSet) {
+				if(!contains(v)) {
+					return false;
+				}
+			}
+			
+		} catch(ClassCastException e) {
+			return false;
+		}
+		return true;
+
 	}
 	
 	@SuppressWarnings("unchecked")
@@ -372,6 +406,5 @@ public class HashSet<E> implements Set<E>, Iterable<E>, Cloneable {
 	}
 	
 
-	
 }
 
