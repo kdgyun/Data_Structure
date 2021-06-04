@@ -6,7 +6,7 @@ package _10_PriorityQueue;
 * @param <E> the type of elements in this PriorityQueue
 * 
 * @author kdgyun (st-lab.tistory.com)
-* @version 1.0
+* @version 1.0.1
 * @see Queue
 * 
 */
@@ -263,8 +263,8 @@ public class PriorityQueue<E> implements Queue<E>, Cloneable, Iterable<E> {
 	}
 	
 	public boolean contains(Object value) {
-		for(int i = 1; i <= size; i++) {
-			if(array[i].equals(value)) {
+		for(Object v : this) {
+			if(v.equals(value)) {
 				return true;
 			}
 		}
