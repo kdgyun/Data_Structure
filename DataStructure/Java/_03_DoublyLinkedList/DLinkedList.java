@@ -192,22 +192,21 @@ public class DLinkedList<E> implements List<E>, Iterable<E>, Cloneable {
 	public boolean remove(Object value) {
 
 		Node<E> prevNode = head;
-		boolean hasValue = false;
 		Node<E> x = head;
 		for (; x != null; x = x.next) {
 			if (value.equals(x.data)) {
-				hasValue = true;
 				break;
 			}
 			prevNode = x;
 		}
 
+		if(x == null) {
+			return false;
+		}
+		
 		if (x.equals(head)) {
 			remove();
 			return true;
-		}
-		else if (!hasValue) {
-			return false;
 		}
 
 		else {

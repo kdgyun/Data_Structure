@@ -131,7 +131,7 @@ public class SLinkedList<E> implements List<E>, Iterable<E>, Cloneable {
 			return remove();
 		}
 
-		if (index >= size || size < 0) {
+		if (index >= size || index < 0) {
 			throw new IndexOutOfBoundsException();
 		}
 		Node<E> prevNode = search(index - 1);
@@ -149,25 +149,23 @@ public class SLinkedList<E> implements List<E>, Iterable<E>, Cloneable {
 
 	@Override
 	public boolean remove(Object value) {
-
 		Node<E> prevNode = head;
-		boolean hasValue = false;
 		Node<E> x = head;	// removedNode 
 		
 		for (; x != null; x = x.next) {
 			if (value.equals(x.data)) {
-				hasValue = true;
 				break;
 			}
 			prevNode = x;
 		}
 
+		if(x == null) {
+			return false;
+		}
+		
 		if (x.equals(head)) {
 			remove();
 			return true;
-		}
-		else if (!hasValue) {
-			return false;
 		}
 		else {
 			prevNode.next = x.next;
