@@ -62,8 +62,7 @@ public interface Set<E> extends Iterable<E> {
 	boolean isEmpty();
 	
 	/**
-	 * 현재 집합의 요소의 개수를 반환합니다. 만약 들어있는 요소가
-	 * {@code Integer.MAX_VALUE}를 넘을 경우 {@code Integer.MAX_VALUE}를 반환합니다.
+	 * 현재 집합의 요소의 개수를 반환합니다.
 	 * 
 	 * @return 집합에 들어있는 요소의 개수를 반환
 	 */
