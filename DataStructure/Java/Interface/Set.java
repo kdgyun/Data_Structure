@@ -12,7 +12,7 @@ import java.util.Iterator;
  * @param <E> the type of elements in this Set
  *
  * @version 1.0.1
- * 
+ * @since 1.0.1
  */
 
 public interface Set<E> extends Iterable<E> {
