@@ -14,8 +14,8 @@ import java.util.NoSuchElementException;
  * @param <E> the type of elements in this PriorityQueue
  * 
  * @author kdgyun (st-lab.tistory.com)
- * @version 1.1.0
- * @since 1.0.1
+ * @version 1.1.002
+ * @since 1.0.001
  * @see Queue
  * 
  */
@@ -56,6 +56,9 @@ public class PriorityQueue<E> implements Queue<E>, Cloneable, Iterable<E> {
 	}
 	
 	public PriorityQueue(int capacity, Comparator<? super E> comparator) {
+		if(capacity < 0) {
+			throw new IllegalArgumentException();
+		}
 		this.array = new Object[capacity];
 		this.size = 0;
 		this.comparator = comparator;
@@ -309,6 +312,9 @@ public class PriorityQueue<E> implements Queue<E>, Cloneable, Iterable<E> {
 	}
 	
 	public boolean contains(Object value) {
+		if(value == null) {
+			return false;
+		}
 		for(Object v : this) {
 			if(v.equals(value)) {
 				return true;

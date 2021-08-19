@@ -12,8 +12,8 @@ import java.util.NoSuchElementException;
  * @param <E> the type of elements in this Queue
  * 
  * @author kdgyun (st-lab.tistory.com)
- * @version 1.1.0
- * @since 1.0.0
+ * @version 1.1.002
+ * @since 1.0.001
  * @see Queue
  * 
  */
@@ -48,6 +48,10 @@ public class ArrayQueue<E> implements Queue<E>, Cloneable, Iterable<E> {
 	}
 
 	public ArrayQueue(int capacity) {
+		if(capacity < 0) {
+			throw new IllegalArgumentException();
+		}
+
 		this.array = new Object[capacity];
 		this.size = 0;
 		this.front = 0;
@@ -177,11 +181,13 @@ public class ArrayQueue<E> implements Queue<E>, Cloneable, Iterable<E> {
 	}
 
 	public boolean contains(Object value) {
-
+		if(value == null) {
+			return false;
+		}
 		int start = (front + 1) % array.length;
 
 		for (int i = 0, idx = start; i < size; i++, idx = (idx + 1) % array.length) {
-			if (array[idx].equals(value)) {
+			if(value.equals(array[idx])) {
 				return true;
 			}
 		}

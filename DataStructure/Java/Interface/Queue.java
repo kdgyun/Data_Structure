@@ -11,8 +11,8 @@ import java.util.NoSuchElementException;
  * @author st_lab
  * @param <E> the type of elements in this Queue
  *
- * @version 1.0.0
- * @since 1.9.9
+ * @version 1.0.001
+ * @since 1.0.001
  */
 
 public interface Queue<E> {

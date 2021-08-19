@@ -13,7 +13,8 @@ import Interface.Deque;
 * @param <E> the type of elements in this Deque
 * 
 * @author kdgyun (st-lab.tistory.com)
-* @version 1.0
+* @version 1.1.002
+* @since 1.0.001
 * @see Queue
 * 
 */
@@ -189,6 +190,9 @@ public class LinkedListDeque<E> implements Deque<E>, Cloneable, Iterable<E> {
 	}
 	
 	public boolean contains(Object value) {
+		if(value == null) {
+			return false;
+		}
 		for(Node<E> x = head; x != null; x = x.next) {
 			if(value.equals(x.data)) {
 				return true;

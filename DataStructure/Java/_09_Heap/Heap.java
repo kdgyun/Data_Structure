@@ -14,8 +14,8 @@ import Interface.Queue;
 * @param <E> the type of elements in this Heap
 * 
 * @author kdgyun (st-lab.tistory.com)
-* @version 1.1.0
-* @since 1.0.0
+* @version 1.1.002
+* @since 1.0.001
 * @see Queue
 * 
 */
@@ -56,6 +56,9 @@ public class Heap<E> implements Cloneable, Iterable<E> {
 	}
 	
 	public Heap(int capacity, Comparator<? super E> comparator) {
+		if(capacity < 0) {
+			throw new IllegalArgumentException();
+		}
 		this.array = new Object[capacity];
 		this.size = 0;
 		this.comparator = comparator;
@@ -268,8 +271,11 @@ public class Heap<E> implements Cloneable, Iterable<E> {
 	}
 	
 	public boolean contains(Object value) {
+		if(value == null) {
+			return false;
+		}
 		for(int i = 1; i <= size; i++) {
-			if(array[i].equals(value)) {
+			if(value.equals(array[i])) {
 				return true;
 			}
 		}

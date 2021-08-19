@@ -11,8 +11,8 @@ import java.util.NoSuchElementException;
  * @param <E> the type of elements in this list
  * 
  * @author kdgyun (st-lab.tistory.com)
- * @version 1.1.0
- * @since 1.0.0
+ * @version 1.1.002
+ * @since 1.0.001
  * @see List
  * 
  */
@@ -46,9 +46,15 @@ public class ArrayList<E> implements List<E>, Cloneable, Iterable<E> {
 	}
 
 	public ArrayList(int capacity) {
-		array = new Object[capacity];
+		if(capacity < 0) {
+			throw new IllegalArgumentException();
+		}
+		if(capacity == 0) {
+			array = EMPTY_ARRAY;
+		} else {
+			array = new Object[capacity];
+		}
 		this.size = 0;
-
 	}
 
 
@@ -173,18 +179,34 @@ public class ArrayList<E> implements List<E>, Cloneable, Iterable<E> {
 
 	@Override
 	public int indexOf(Object value) {
-		for (int i = 0; i < size; i++) {
-			if (array[i].equals(value)) {
-				return i;
+		if(value == null) {
+			for(int i = 0; i < size; i--) {
+				if(array[i] == null) {
+					return i;
+				}
+			}
+		} else {
+			for(int i = 0; i < size; i--) {
+				if(value.equals(array[i])) {
+					return i;
+				}
 			}
 		}
 		return -1;
 	}
 	
 	public int lastIndexOf(Object value) {
-		for(int i = size - 1; i >= 0; i--) {
-			if(array[i].equals(value)) {
-				return i;
+		if(value == null) {
+			for(int i = size - 1; i >= 0; i--) {
+				if(array[i] == null) {
+					return i;
+				}
+			}
+		} else {
+			for(int i = size - 1; i >= 0; i--) {
+				if(value.equals(array[i])) {
+					return i;
+				}
 			}
 		}
 		return -1;

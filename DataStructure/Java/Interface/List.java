@@ -8,8 +8,8 @@ package Interface;
  * @author kdgyun
  * @param <E> the type of elements in this list
  *
- * @version 1.0.0
- * @since 1.0.0
+ * @version 1.0.001
+ * @since 1.0.001
  * 
  */
 

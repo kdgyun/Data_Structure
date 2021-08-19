@@ -8,8 +8,8 @@ package Interface;
  * @author st_lab
  * @param <E> the type of elements in this Deque
  *
- * @version 1.0.0
- * @since 1.0.0
+ * @version 1.0.001
+ * @since 1.0.001
  */
 
 public interface Deque<E> extends Queue<E> {

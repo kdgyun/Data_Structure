@@ -11,8 +11,8 @@ import java.util.Iterator;
  * @author st_lab
  * @param <E> the type of elements in this Set
  *
- * @version 1.0.1
- * @since 1.0.1
+ * @version 1.0.001
+ * @since 1.0.001
  */
 
 public interface Set<E> extends Iterable<E> {

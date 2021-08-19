@@ -11,8 +11,8 @@ import Interface.Set;
 * @param <E> the type of elements in this HashSet
 * 
 * @author kdgyun (st-lab.tistory.com)
-* @version 1.1.0
-* @since 1.0.1
+* @version 1.1.002
+* @since 1.0.001
 * @see Set
 * 
 */
@@ -286,6 +286,9 @@ public class HashSet<E> implements Set<E>, Cloneable {
 
 	@Override
 	public boolean contains(Object o) {
+		if(o == null) {
+			return false;
+		}
 		int idx = hash(o) & (table.length - 1);
 		Node<E> temp = table[idx];
 

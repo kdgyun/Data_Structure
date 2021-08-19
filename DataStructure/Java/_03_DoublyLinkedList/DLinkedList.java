@@ -12,7 +12,8 @@ import Interface.List;
 * @param <E> the type of elements in this list
 * 
 * @author kdgyun (st-lab.tistory.com)
-* @version 1.0
+* @version 1.0.001
+* @since 1.0.001
 * @see List
 * 
 */

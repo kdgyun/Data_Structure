@@ -12,7 +12,8 @@ import java.util.NoSuchElementException;
  * @param <E> the type of elements in this Queue
  * 
  * @author kdgyun (st-lab.tistory.com)
- * @version 1.0
+ * @version 1.1.002
+ * @since 1.0.001
  * @see Queue
  * 
  */
@@ -95,7 +96,9 @@ public class LinkedListQueue<E> implements Queue<E>, Iterable<E>, Cloneable {
 	}
 
 	public boolean contains(Object value) {
-
+		if(value == null) {
+			return false;
+		}
 		for (Node<E> i = head; i != null; i = i.next) {
 			if (value.equals(i.data)) {
 				return true;

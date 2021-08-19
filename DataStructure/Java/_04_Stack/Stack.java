@@ -9,16 +9,16 @@ import java.util.NoSuchElementException;
 import Interface.StackInterface;
 
 /**
-*
-* @param <E> the type of elements in this Stack
-* 
-* @author kdgyun (st-lab.tistory.com)
-* @version 1.1.0
-* @since 1.0.0
-* @see StackInterface
-* @see ArrayList (if you have implemented or imported my ArrayList)
-* 
-*/
+ *
+ * @param <E> the type of elements in this Stack
+ * 
+ * @author kdgyun (st-lab.tistory.com)
+ * @version 1.1.002
+ * @since 1.0.001
+ * @see StackInterface
+ * @see ArrayList (if you have implemented or imported my ArrayList)
+ * 
+ */
 
 public class Stack<E> implements StackInterface<E>, Cloneable, Iterable<E> {
 	
@@ -47,7 +47,14 @@ public class Stack<E> implements StackInterface<E>, Cloneable, Iterable<E> {
 	}
 	
 	public Stack(int capacity) {
-		this.array = new Object[capacity];
+		if(capacity < 0) {
+			throw new IllegalArgumentException();
+		}
+		if(capacity == 0) {
+			array = EMPTY_ARRAY;
+		} else {
+			array = new Object[capacity];
+		}
 		this.size = 0;
 	}
 	
@@ -145,11 +152,20 @@ public class Stack<E> implements StackInterface<E>, Cloneable, Iterable<E> {
 	@Override
 	public int search(Object value) {
 
-		for(int idx = size - 1; idx >= 0; idx--) {
-			if(array[idx].equals(value)) {
-				return size - idx;
+		if(value == null) {
+			for(int idx = size - 1; idx >= 0; idx--) {
+				if(array[idx] == null) {
+					return size - idx;
+				}
+			}
+		} else {
+			for(int idx = size - 1; idx >= 0; idx--) {
+				if(array[idx].equals(value)) {
+					return size - idx;
+				}
 			}
 		}
+
 		return -1;
 	}
  
