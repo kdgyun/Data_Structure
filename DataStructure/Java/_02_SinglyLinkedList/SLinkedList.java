@@ -141,6 +141,9 @@ public class SLinkedList<E> implements List<E>, Iterable<E>, Cloneable {
 
 		E element = removedNode.data;
 		prevNode.next = nextNode;
+		if(prevNode.next == null) {
+			tail = prevNode;
+		}
 		removedNode.next = null;
 		removedNode.data = null;
 		size--;
@@ -170,6 +173,9 @@ public class SLinkedList<E> implements List<E>, Iterable<E>, Cloneable {
 		}
 		else {
 			prevNode.next = x.next;
+			if(prevNode.next == null) {
+				tail = prevNode;
+			}
 			x.data = null;
 			x.next = null;
 			size--;
