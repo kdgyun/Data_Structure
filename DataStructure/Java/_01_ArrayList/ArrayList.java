@@ -227,7 +227,7 @@ public class ArrayList<E> implements List<E>, Cloneable, Iterable<E> {
 
 		E element = (E) array[index];
 		array[index] = null;
-		for (int i = index; i < size; i++) {
+		for (int i = index; i < size - 1; i++) {
 			array[i] = array[i + 1];
 			array[i + 1] = null;
 		}
