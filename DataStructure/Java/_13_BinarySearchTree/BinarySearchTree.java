@@ -7,7 +7,7 @@ import java.util.NoSuchElementException;
 import Interface.Tree;
 /**
 *
-* @param <E> the type of elements in this list
+* @param <E> the type of elements in this tree
 * 
 * @author kdgyun (st-lab.tistory.com)
 * @version 1.1.003
