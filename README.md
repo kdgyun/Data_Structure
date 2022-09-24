@@ -42,7 +42,7 @@ Project
 > - \_10\_PriorityQueue : 우선순위 큐를 구현한 소스코드가 있습니다. (배열 힙 기반)
 > - \_11\_HashSet : Separate Chaining 방식을 적용한 HashSet을 구현한 소스코드가 있습니다.
 > - \_12\_LinkedHashSet : Separate Chaining + LinkedList 방식을 적용한 LinkedHashSet을 구현한 소스코드가 있습니다.
-
+> - \_13\_BinarySearchTree : 반복문을 이용한 BinarySearchTree을 구현한 소스코드가 있습니다.
 
 <br/><br/>
 
@@ -124,5 +124,3 @@ class YourClass {
 &nbsp;&nbsp;&nbsp; 부분적으로 추가 구현 또는 차이가 있을 수 있습니다.
 
 <br/><br/>
-
-
