@@ -36,7 +36,7 @@ public class DLinkedList<E> implements List<E>, Iterable<E>, Cloneable {
 			throw new IndexOutOfBoundsException();
 		}
 		
-		if (index > size / 2) {
+		if (index + 1 > size / 2) {
 			Node<E> x = tail;
 			for (int i = size - 1; i > index; i--) {
 				x = x.prev;
