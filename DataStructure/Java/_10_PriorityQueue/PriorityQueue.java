@@ -194,7 +194,13 @@ public class PriorityQueue<E> implements Queue<E>, Cloneable, Iterable<E> {
 		}	
 		
 		E result = (E) array[1];
-		E target = (E) array[size];
+		E target;
+		if(size == 1) {
+			target = null;
+		}
+		else {
+			target = (E) array[size];
+		}
 		
 		array[size] = null;
 		size--;	
